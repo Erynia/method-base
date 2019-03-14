@@ -15,6 +15,28 @@
 			val  < 10 ? val = "0" + val : val;
 			return val
 		})
-		return template;
+		return template
 	}
 })(String.prototype)
+
+/*
+* bubbleSort:  Bubbling principle sort
+* @ params:
+*  		无
+* @ return:
+*		[Array] Sorted array*
+*/
+(function (pro) {
+	pro.bubbleSort = function bubble () {
+		for(var i = 0; i < this.length - 1; i++) {
+			for (var j = 0; j < this.length; j++) {
+				var item = this[j];
+				if (item > this[j+1]) {
+					this[j] = this[j+1]
+					this[j+1] = item;
+				}
+			};
+		}
+		return this;
+	} 
+})(Array.prototype)
