@@ -40,3 +40,21 @@
 		return this;
 	} 
 })(Array.prototype)
+
+/*
+* findUrlParam : Find the address bar parameter
+* @ params:
+*		attr: [String] The name of the property to query
+* @ return:
+*  		[String] Search results
+**/
+(function (pro){
+	pro.findUrlParam = function getUrlParam(attr) {
+		var result = {},reg = /([\w]*[^&?]=[^&?][\w]*)/g;
+		this.match(reg).forEach((item) => {
+			var ary = item.split("=");
+			result[ary[0]] = ary[1]
+		})
+  		return result[attr]
+	}
+})(String.prototype)
